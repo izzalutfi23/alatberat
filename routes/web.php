@@ -28,6 +28,14 @@ $router->group(['middleware' => 'auth'], function() use($router){
         $router->get('/', 'Authcontroller@show');
         $router->post('/update', 'Authcontroller@update');
     });
+    // Kategori alat berat
+    $router->group(['prefix' => 'kategori'], function () use ($router) {
+        $router->get('/', 'Kategoricontroller@getkategori');
+    });
+    // Alat Berat
+    $router->group(['prefix' => 'alatberat'], function () use ($router) {
+        $router->get('/', 'Alatberatcontroller@getalatberat');
+    });
     // Logout
     $router->post('/logout','Authcontroller@logoutApi');
 });
