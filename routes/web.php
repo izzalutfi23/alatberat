@@ -36,6 +36,10 @@ $router->group(['middleware' => 'auth'], function() use($router){
     $router->group(['prefix' => 'alatberat'], function () use ($router) {
         $router->get('/', 'Alatberatcontroller@getalatberat');
     });
+    // Transaksi
+    $router->group(['prefix' => 'transaksi'], function () use ($router) {
+        $router->post('/', 'Transaksicontroller@store');
+    });
     // Logout
     $router->post('/logout','Authcontroller@logoutApi');
 });

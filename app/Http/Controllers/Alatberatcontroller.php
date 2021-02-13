@@ -21,7 +21,7 @@ class Alatberatcontroller extends Controller
             return response()->json([
                 'status' => 'gagal',
                 'message' => 'Data alat berat tidak ditemukan'
-            ]);
+            ], 404);
         }
     }
 }

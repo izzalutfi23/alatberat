@@ -19,7 +19,7 @@ class Kategoricontroller extends Controller
             return response()->json([
                 'status' => 'gagal',
                 'message' => 'Data kategori tidak ditemukan'
-            ]);
+            ], 404);
         }
     }
 }
