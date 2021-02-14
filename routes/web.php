@@ -35,10 +35,13 @@ $router->group(['middleware' => 'auth'], function() use($router){
     // Alat Berat
     $router->group(['prefix' => 'alatberat'], function () use ($router) {
         $router->get('/', 'Alatberatcontroller@getalatberat');
+        $router->post('/bykategori', 'Alatberatcontroller@getalatbykategori');
     });
     // Transaksi
     $router->group(['prefix' => 'transaksi'], function () use ($router) {
         $router->post('/', 'Transaksicontroller@store');
+        $router->get('/get', 'Transaksicontroller@gettransaksi');
+        $router->post('/getdetail', 'Transaksicontroller@getdetailtransaksi');
     });
     // Logout
     $router->post('/logout','Authcontroller@logoutApi');

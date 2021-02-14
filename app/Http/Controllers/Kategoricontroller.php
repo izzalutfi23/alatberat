@@ -10,10 +10,7 @@ class Kategoricontroller extends Controller
     public function getkategori(){
         $kategori = Kategori::select('id', 'nama')->get();
         if($kategori){
-            return response()->json([
-                'status' => 'success',
-                'data' => $kategori
-            ], 200);
+            return response()->json($kategori, 200);
         }
         else{
             return response()->json([
