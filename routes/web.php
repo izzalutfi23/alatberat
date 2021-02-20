@@ -32,6 +32,10 @@ $router->group(['middleware' => 'auth'], function() use($router){
     $router->group(['prefix' => 'kategori'], function () use ($router) {
         $router->get('/', 'Kategoricontroller@getkategori');
     });
+    // Operator
+    $router->group(['prefix' => 'operator'], function () use ($router) {
+        $router->post('/', 'Operatorcontroller@getoperator');
+    });
     // Alat Berat
     $router->group(['prefix' => 'alatberat'], function () use ($router) {
         $router->get('/', 'Alatberatcontroller@getalatberat');

@@ -21,6 +21,7 @@ class Transaksicontroller extends Controller
         $transaksi = Transaksi::create([
             'user_id' => Auth()->user()->id,
             'alatberat_id' => $request->alatberat_id,
+            'operator_id' => $request->operator_id,
             'status' => 'pending',
             'start_date' => $request->start_date,
             'end_date' => $request->end_date,
@@ -48,6 +49,8 @@ class Transaksicontroller extends Controller
             $q->select('id', 'kategori_id', 'nama', 'deskripsi', 'foto', 'tahun', 'harga', 'status')->with(['kategori'=>function($q){
                 $q->select('id', 'nama');
             }]);
+        }])->with(['operator'=>function($qo){
+            $qo->select('id', 'nama');
         }])->get();
         if($transaksi){
             return response()->json($transaksi, 200);
@@ -65,6 +68,8 @@ class Transaksicontroller extends Controller
             $q->select('id', 'kategori_id', 'nama', 'deskripsi', 'foto', 'tahun', 'harga', 'status')->with(['kategori'=>function($q){
                 $q->select('id', 'nama');
             }]);
+        }])->with(['operator'=>function($qo){
+            $qo->select('id', 'nama');
         }])->first();
         if($transaksi){
             return response()->json($transaksi, 200);
